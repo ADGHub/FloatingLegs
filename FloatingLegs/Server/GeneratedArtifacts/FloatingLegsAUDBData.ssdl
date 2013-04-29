@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="FloatingLegsAUDBDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="FloatingLegsAUDBDataStore">
+    <EntitySet Name="aspnet_Applications" EntityType="FloatingLegsAUDBDataStore.aspnet_Application" store:Type="Tables" Schema="dbo" Table="aspnet_Applications" />
+    <EntitySet Name="aspnet_Memberships" EntityType="FloatingLegsAUDBDataStore.aspnet_Membership" store:Type="Tables" Schema="dbo" Table="aspnet_Membership" />
+    <EntitySet Name="aspnet_Profiles" EntityType="FloatingLegsAUDBDataStore.aspnet_Profile" store:Type="Tables" Schema="dbo" Table="aspnet_Profile" />
+    <EntitySet Name="aspnet_Roles" EntityType="FloatingLegsAUDBDataStore.aspnet_Role" store:Type="Tables" Schema="dbo" Table="aspnet_Roles" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="FloatingLegsAUDBDataStore.aspnet_SchemaVersion" store:Type="Tables" Schema="dbo" Table="aspnet_SchemaVersions" />
+    <EntitySet Name="aspnet_Users" EntityType="FloatingLegsAUDBDataStore.aspnet_User" store:Type="Tables" Schema="dbo" Table="aspnet_Users" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="FloatingLegsAUDBDataStore.aspnet_UsersInRole" store:Type="Tables" Schema="dbo" Table="aspnet_UsersInRoles" />
+    <EntitySet Name="Clients" EntityType="FloatingLegsAUDBDataStore.Client1" store:Type="Tables" Schema="dbo" Table="Clients" />
+    <EntitySet Name="CoursePrograms" EntityType="FloatingLegsAUDBDataStore.CourseProgram1" store:Type="Tables" Schema="dbo" Table="CoursePrograms" />
+    <EntitySet Name="Courses" EntityType="FloatingLegsAUDBDataStore.Cours" store:Type="Tables" Schema="dbo" Table="Courses" />
+    <EntitySet Name="Enrollments" EntityType="FloatingLegsAUDBDataStore.Enrollment1" store:Type="Tables" Schema="dbo" Table="Enrollments" />
+    <EntitySet Name="Instructors" EntityType="FloatingLegsAUDBDataStore.AbilitiesUnitedInstructor" store:Type="Tables" Schema="dbo" Table="Instructors" />
+    <EntitySet Name="Pools" EntityType="FloatingLegsAUDBDataStore.Pool1" store:Type="Tables" Schema="dbo" Table="Pools" />
+    <EntitySet Name="Programs" EntityType="FloatingLegsAUDBDataStore.FL_Programs" store:Type="Tables" Schema="dbo" Table="Programs" />
+    <EntitySet Name="RolePermissions" EntityType="FloatingLegsAUDBDataStore.RolePermission" store:Type="Tables" Schema="dbo" Table="RolePermissions" />
+    <EntitySet Name="Sections" EntityType="FloatingLegsAUDBDataStore.Section1" store:Type="Tables" Schema="dbo" Table="Sections" />
+    <EntitySet Name="SponsorRelationships" EntityType="FloatingLegsAUDBDataStore.SponsorRelationship" store:Type="Tables" Schema="dbo" Table="SponsorRelationship" />
+    <EntitySet Name="Sponsors" EntityType="FloatingLegsAUDBDataStore.Sponsor1" store:Type="Tables" Schema="dbo" Table="Sponsors" />
+    <EntitySet Name="Sponsorships" EntityType="FloatingLegsAUDBDataStore.Sponsorship1" store:Type="Tables" Schema="dbo" Table="Sponsorships" />
+    <EntitySet Name="vw_aspnet_Applications" EntityType="FloatingLegsAUDBDataStore.vw_aspnet_Application" store:Type="Tables" Schema="dbo" Table="vw_aspnet_Applications" />
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="FloatingLegsAUDBDataStore.vw_aspnet_MembershipUser" store:Type="Tables" Schema="dbo" Table="vw_aspnet_MembershipUsers" />
+    <EntitySet Name="vw_aspnet_Profiles" EntityType="FloatingLegsAUDBDataStore.vw_aspnet_Profile" store:Type="Tables" Schema="dbo" Table="vw_aspnet_Profiles" />
+    <EntitySet Name="vw_aspnet_Roles" EntityType="FloatingLegsAUDBDataStore.vw_aspnet_Role" store:Type="Tables" Schema="dbo" Table="vw_aspnet_Roles" />
+    <EntitySet Name="vw_aspnet_Users" EntityType="FloatingLegsAUDBDataStore.vw_aspnet_User" store:Type="Tables" Schema="dbo" Table="vw_aspnet_Users" />
+    <EntitySet Name="vw_aspnet_UsersInRoles" EntityType="FloatingLegsAUDBDataStore.vw_aspnet_UsersInRole" store:Type="Tables" Schema="dbo" Table="vw_aspnet_UsersInRoles" />
+    <AssociationSet Name="Client_SponsorRelationshipItem1" Association="FloatingLegsAUDBDataStore.Client_SponsorRelationshipItem1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationships" />
+    </AssociationSet>
+    <AssociationSet Name="Client_Sponsorship1" Association="FloatingLegsAUDBDataStore.Client_Sponsorship1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Sponsorships" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram_Course1" Association="FloatingLegsAUDBDataStore.CourseProgram_Course1">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CoursePrograms" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="FL_Programs_CourseProgram1" Association="FloatingLegsAUDBDataStore.FL_Programs_CourseProgram1">
+      <End Role="FL_Programs" EntitySet="Programs" />
+      <End Role="CoursePrograms" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Client1" Association="FloatingLegsAUDBDataStore.Enrollment_Client1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Section1" Association="FloatingLegsAUDBDataStore.Enrollment_Section1">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__Appli__08B54D69" Association="FloatingLegsAUDBDataStore.FK__aspnet_Me__Appli__08B54D69">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__09A971A2" Association="FloatingLegsAUDBDataStore.FK__aspnet_Me__UserI__09A971A2">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__1DB06A4F" Association="FloatingLegsAUDBDataStore.FK__aspnet_Pr__UserI__1DB06A4F">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__2739D489" Association="FloatingLegsAUDBDataStore.FK__aspnet_Ro__Appli__2739D489">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__787EE5A0" Association="FloatingLegsAUDBDataStore.FK__aspnet_Us__Appli__787EE5A0">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__2BFE89A6" Association="FloatingLegsAUDBDataStore.FK__aspnet_Us__RoleI__2BFE89A6">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__2B0A656D" Association="FloatingLegsAUDBDataStore.FK__aspnet_Us__UserI__2B0A656D">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="Section_Course1" Association="FloatingLegsAUDBDataStore.Section_Course1">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="AbilitiesUnitedInstructor_Section1" Association="FloatingLegsAUDBDataStore.AbilitiesUnitedInstructor_Section1">
+      <End Role="AbilitiesUnitedInstructor" EntitySet="Instructors" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_SponsorRelationshipItem1" Association="FloatingLegsAUDBDataStore.Sponsor_SponsorRelationshipItem1">
+      <End Role="Sponsors" EntitySet="Sponsors" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationships" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_Sponsorship1" Association="FloatingLegsAUDBDataStore.Sponsor_Sponsorship1">
+      <End Role="Sponsors" EntitySet="Sponsors" />
+      <End Role="Sponsorships" EntitySet="Sponsorships" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+    <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+    <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersion">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="NotificationRecpients" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="CourseProgram1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CourseCategory_Course" Type="int" Nullable="false" />
+    <Property Name="CourseCategory_Category" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="3000" />
+    <Property Name="TeachingRatio" Type="nvarchar" MaxLength="255" />
+    <Property Name="PoolArea" Type="nvarchar" MaxLength="255" />
+    <Property Name="ClassSize" Type="int" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Enrollment1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Enrollment_Student" Type="int" Nullable="false" />
+    <Property Name="Enrollment_Section" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbilitiesUnitedInstructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="Office" Type="nvarchar" MaxLength="255" />
+    <Property Name="Bio" Type="nvarchar" MaxLength="300" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Pool1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="FL_Programs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="3000" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PermissionId" Type="nvarchar" Nullable="false" MaxLength="322" />
+  </EntityType>
+  <EntityType Name="Section1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SectionID" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MaxEnrollment" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingDays" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingTime" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Section_Course" Type="int" Nullable="false" />
+    <Property Name="Section_Instructor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SponsorRelationship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Relationship" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Client_RelationshipType" Type="int" Nullable="false" />
+    <Property Name="Sponsor_RelationshipType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sponsor1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PreferredContactMethod" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Zip" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Sponsorship1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Client_Sponsorship" Type="int" Nullable="false" />
+    <Property Name="Sponsor_Sponsorship" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Application">
+    <Key>
+      <PropertyRef Name="ApplicationName" />
+      <PropertyRef Name="LoweredApplicationName" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_MembershipUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="DataSize" Type="int" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Role">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="LoweredRoleName" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_User">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_UsersInRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="Client_SponsorRelationshipItem1">
+    <End Role="Clients" Type="FloatingLegsAUDBDataStore.Client1" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="FloatingLegsAUDBDataStore.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Client_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Client_Sponsorship1">
+    <End Role="Clients" Type="FloatingLegsAUDBDataStore.Client1" Multiplicity="1" />
+    <End Role="Sponsorships" Type="FloatingLegsAUDBDataStore.Sponsorship1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorships">
+        <PropertyRef Name="Client_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram_Course1">
+    <End Role="Courses" Type="FloatingLegsAUDBDataStore.Cours" Multiplicity="1" />
+    <End Role="CoursePrograms" Type="FloatingLegsAUDBDataStore.CourseProgram1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursePrograms">
+        <PropertyRef Name="CourseCategory_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FL_Programs_CourseProgram1">
+    <End Role="FL_Programs" Type="FloatingLegsAUDBDataStore.FL_Programs" Multiplicity="1" />
+    <End Role="CoursePrograms" Type="FloatingLegsAUDBDataStore.CourseProgram1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_Programs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursePrograms">
+        <PropertyRef Name="CourseCategory_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Client1">
+    <End Role="Clients" Type="FloatingLegsAUDBDataStore.Client1" Multiplicity="1" />
+    <End Role="Enrollments" Type="FloatingLegsAUDBDataStore.Enrollment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="Enrollment_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Section1">
+    <End Role="Sections" Type="FloatingLegsAUDBDataStore.Section1" Multiplicity="1" />
+    <End Role="Enrollments" Type="FloatingLegsAUDBDataStore.Enrollment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="Enrollment_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__Appli__08B54D69">
+    <End Role="aspnet_Applications" Type="FloatingLegsAUDBDataStore.aspnet_Application" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="FloatingLegsAUDBDataStore.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__09A971A2">
+    <End Role="aspnet_Users" Type="FloatingLegsAUDBDataStore.aspnet_User" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="FloatingLegsAUDBDataStore.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__1DB06A4F">
+    <End Role="aspnet_Users" Type="FloatingLegsAUDBDataStore.aspnet_User" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="FloatingLegsAUDBDataStore.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__2739D489">
+    <End Role="aspnet_Applications" Type="FloatingLegsAUDBDataStore.aspnet_Application" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="FloatingLegsAUDBDataStore.aspnet_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__787EE5A0">
+    <End Role="aspnet_Applications" Type="FloatingLegsAUDBDataStore.aspnet_Application" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="FloatingLegsAUDBDataStore.aspnet_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__2BFE89A6">
+    <End Role="aspnet_Roles" Type="FloatingLegsAUDBDataStore.aspnet_Role" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="FloatingLegsAUDBDataStore.aspnet_UsersInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__2B0A656D">
+    <End Role="aspnet_Users" Type="FloatingLegsAUDBDataStore.aspnet_User" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="FloatingLegsAUDBDataStore.aspnet_UsersInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Section_Course1">
+    <End Role="Courses" Type="FloatingLegsAUDBDataStore.Cours" Multiplicity="1" />
+    <End Role="Sections" Type="FloatingLegsAUDBDataStore.Section1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="Section_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AbilitiesUnitedInstructor_Section1">
+    <End Role="AbilitiesUnitedInstructor" Type="FloatingLegsAUDBDataStore.AbilitiesUnitedInstructor" Multiplicity="1" />
+    <End Role="Sections" Type="FloatingLegsAUDBDataStore.Section1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbilitiesUnitedInstructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="Section_Instructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_SponsorRelationshipItem1">
+    <End Role="Sponsors" Type="FloatingLegsAUDBDataStore.Sponsor1" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="FloatingLegsAUDBDataStore.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Sponsor_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_Sponsorship1">
+    <End Role="Sponsors" Type="FloatingLegsAUDBDataStore.Sponsor1" Multiplicity="1" />
+    <End Role="Sponsorships" Type="FloatingLegsAUDBDataStore.Sponsorship1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorships">
+        <PropertyRef Name="Sponsor_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

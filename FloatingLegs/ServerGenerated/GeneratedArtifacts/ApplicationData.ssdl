@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Categories" EntityType="ApplicationDataStore.Category" store:Type="Tables" Schema="dbo" Table="Categories" />
+    <EntitySet Name="Courses" EntityType="ApplicationDataStore.Course" store:Type="Tables" Schema="dbo" Table="Courses" />
+    <EntitySet Name="Instructors" EntityType="ApplicationDataStore.Instructor" store:Type="Tables" Schema="dbo" Table="Instructors" />
+    <EntitySet Name="Sections" EntityType="ApplicationDataStore.Section" store:Type="Tables" Schema="dbo" Table="Sections" />
+    <EntitySet Name="Enrollments" EntityType="ApplicationDataStore.Enrollment" store:Type="Tables" Schema="dbo" Table="Enrollments" />
+    <EntitySet Name="Students" EntityType="ApplicationDataStore.Student" store:Type="Tables" Schema="dbo" Table="Students" />
+    <EntitySet Name="CourseCategories" EntityType="ApplicationDataStore.CourseCategory" store:Type="Tables" Schema="dbo" Table="CourseCategories" />
+    <AssociationSet Name="Section_Course" Association="ApplicationDataStore.Section_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Section_Instructor" Association="ApplicationDataStore.Section_Instructor">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Section" Association="ApplicationDataStore.Enrollment_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCategory_Course" Association="ApplicationDataStore.CourseCategory_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CourseCategory" EntitySet="CourseCategories" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCategory_Category" Association="ApplicationDataStore.CourseCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CourseCategory" EntitySet="CourseCategories" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Student" Association="ApplicationDataStore.Enrollment_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="3000" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="Office" Type="nvarchar" MaxLength="255" />
+    <Property Name="Bio" Type="nvarchar" MaxLength="300" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SectionID" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MaxEnrollment" Type="int" Nullable="false" />
+    <Property Name="AcademicYear" Type="int" Nullable="false" />
+    <Property Name="AcademicQuarter" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingDays" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingTime" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="Section_Course" Type="int" Nullable="false" />
+    <Property Name="Section_Instructor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Enrollment_Section" Type="int" Nullable="false" />
+    <Property Name="Enrollment_Student" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Zip" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CourseCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseCategory_Course" Type="int" Nullable="false" />
+    <Property Name="CourseCategory_Category" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Section_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1" />
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Section_Instructor">
+    <End Role="Instructor" Type="ApplicationDataStore.Instructor" Multiplicity="1" />
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Instructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Section">
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="1" />
+    <End Role="Enrollment" Type="ApplicationDataStore.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCategory_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1" />
+    <End Role="CourseCategory" Type="ApplicationDataStore.CourseCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCategory">
+        <PropertyRef Name="CourseCategory_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCategory_Category">
+    <End Role="Category" Type="ApplicationDataStore.Category" Multiplicity="1" />
+    <End Role="CourseCategory" Type="ApplicationDataStore.CourseCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCategory">
+        <PropertyRef Name="CourseCategory_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Student">
+    <End Role="Student" Type="ApplicationDataStore.Student" Multiplicity="1" />
+    <End Role="Enrollment" Type="ApplicationDataStore.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

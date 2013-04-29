@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Client\Properties\Client.lsml" Checksum="656E91DAFE842ACA959DE969D7E77E54BDE8499662B67FAA2A401C4D9ED19F6C" />
+    <Document FullPath="C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Properties\Common.lsml" Checksum="0E56CB93FEE86E173C0A976EFAB0182117351DF867ED181C504497CEFECE003C" />
+  </Documents>
+</ModelDocumentManifest>

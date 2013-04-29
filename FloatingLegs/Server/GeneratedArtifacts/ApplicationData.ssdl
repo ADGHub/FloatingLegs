@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Programs" EntityType="ApplicationDataStore.Program" store:Type="Tables" Schema="dbo" Table="Programs" />
+    <EntitySet Name="Courses" EntityType="ApplicationDataStore.Course" store:Type="Tables" Schema="dbo" Table="Courses" />
+    <EntitySet Name="Instructors" EntityType="ApplicationDataStore.Instructor" store:Type="Tables" Schema="dbo" Table="Instructors" />
+    <EntitySet Name="Sections" EntityType="ApplicationDataStore.Section" store:Type="Tables" Schema="dbo" Table="Sections" />
+    <EntitySet Name="Enrollments" EntityType="ApplicationDataStore.Enrollment" store:Type="Tables" Schema="dbo" Table="Enrollments" />
+    <EntitySet Name="Clients" EntityType="ApplicationDataStore.Client" store:Type="Tables" Schema="dbo" Table="Clients" />
+    <EntitySet Name="CoursePrograms" EntityType="ApplicationDataStore.CourseProgram" store:Type="Tables" Schema="dbo" Table="CoursePrograms" />
+    <EntitySet Name="Sponsorships" EntityType="ApplicationDataStore.Sponsorship" store:Type="Tables" Schema="dbo" Table="Sponsorships" />
+    <EntitySet Name="Sponsors" EntityType="ApplicationDataStore.Sponsor" store:Type="Tables" Schema="dbo" Table="Sponsors" />
+    <EntitySet Name="SponsorRelationship" EntityType="ApplicationDataStore.SponsorRelationship" store:Type="Tables" Schema="dbo" Table="SponsorRelationship" />
+    <EntitySet Name="ScheduleViewAppts" EntityType="ApplicationDataStore.ScheduleViewAppt" store:Type="Tables" Schema="dbo" Table="ScheduleViewAppts" />
+    <EntitySet Name="Table1Items" EntityType="ApplicationDataStore.Table1Item" store:Type="Tables" Schema="dbo" Table="Table1Items" />
+    <EntitySet Name="Pools" EntityType="ApplicationDataStore.Pool" store:Type="Tables" Schema="dbo" Table="Pools" />
+    <EntitySet Name="Attendances" EntityType="ApplicationDataStore.Attendance" store:Type="Tables" Schema="dbo" Table="Attendances" />
+    <AssociationSet Name="Section_Course" Association="ApplicationDataStore.Section_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Section_Instructor" Association="ApplicationDataStore.Section_Instructor">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Section" Association="ApplicationDataStore.Enrollment_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram_Course" Association="ApplicationDataStore.CourseProgram_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CourseProgram" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram_Program" Association="ApplicationDataStore.CourseProgram_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="CourseProgram" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Client" Association="ApplicationDataStore.Enrollment_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="Client_Sponsorship" Association="ApplicationDataStore.Client_Sponsorship">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Sponsorship" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_Sponsorship" Association="ApplicationDataStore.Sponsor_Sponsorship">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="Sponsorship" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="Client_SponsorRelationship" Association="ApplicationDataStore.Client_SponsorRelationship">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationship" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_SponsorRelationship" Association="ApplicationDataStore.Sponsor_SponsorRelationship">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationship" />
+    </AssociationSet>
+    <AssociationSet Name="Attendance_Section" Association="ApplicationDataStore.Attendance_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="Attendance_Client" Association="ApplicationDataStore.Attendance_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="3000" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="3000" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="TeachingRatio" Type="nvarchar" MaxLength="255" />
+    <Property Name="PoolArea" Type="nvarchar" MaxLength="255" />
+    <Property Name="ClassSize" Type="int" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="Office" Type="nvarchar" MaxLength="255" />
+    <Property Name="Bio" Type="nvarchar" MaxLength="300" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SectionID" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MaxEnrollment" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingDays" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingTime" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Section_Course" Type="int" Nullable="false" />
+    <Property Name="Section_Instructor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Enrollment_Section" Type="int" Nullable="false" />
+    <Property Name="Enrollment_Student" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="NotificationRecpients" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CourseProgram">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CourseCategory_Course" Type="int" Nullable="false" />
+    <Property Name="CourseCategory_Category" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sponsorship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Client_Sponsorship" Type="int" Nullable="false" />
+    <Property Name="Sponsor_Sponsorship" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PreferredContactMethod" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Zip" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SponsorRelationship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Relationship" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+    <Property Name="Client_RelationshipType" Type="int" Nullable="false" />
+    <Property Name="Sponsor_RelationshipType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduleViewAppt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="ApptGuid" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Importance" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsAllDay" Type="bit" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="RecurrenceRule" Type="nvarchar" MaxLength="255" />
+    <Property Name="TimeMarker" Type="nvarchar" MaxLength="255" />
+    <Property Name="URL" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Table1Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Pool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PoolCapacity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Activity_Section" Type="int" Nullable="false" />
+    <Property Name="Attendance_Client" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Section_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1" />
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Section_Instructor">
+    <End Role="Instructor" Type="ApplicationDataStore.Instructor" Multiplicity="1" />
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Instructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Section">
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="1" />
+    <End Role="Enrollment" Type="ApplicationDataStore.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1" />
+    <End Role="CourseProgram" Type="ApplicationDataStore.CourseProgram" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseProgram">
+        <PropertyRef Name="CourseCategory_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram_Program">
+    <End Role="Program" Type="ApplicationDataStore.Program" Multiplicity="1" />
+    <End Role="CourseProgram" Type="ApplicationDataStore.CourseProgram" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseProgram">
+        <PropertyRef Name="CourseCategory_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Client">
+    <End Role="Client" Type="ApplicationDataStore.Client" Multiplicity="1" />
+    <End Role="Enrollment" Type="ApplicationDataStore.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Client_Sponsorship">
+    <End Role="Client" Type="ApplicationDataStore.Client" Multiplicity="1" />
+    <End Role="Sponsorship" Type="ApplicationDataStore.Sponsorship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorship">
+        <PropertyRef Name="Client_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_Sponsorship">
+    <End Role="Sponsor" Type="ApplicationDataStore.Sponsor" Multiplicity="1" />
+    <End Role="Sponsorship" Type="ApplicationDataStore.Sponsorship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorship">
+        <PropertyRef Name="Sponsor_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Client_SponsorRelationship">
+    <End Role="Client" Type="ApplicationDataStore.Client" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="ApplicationDataStore.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Client_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_SponsorRelationship">
+    <End Role="Sponsor" Type="ApplicationDataStore.Sponsor" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="ApplicationDataStore.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Sponsor_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Attendance_Section">
+    <End Role="Section" Type="ApplicationDataStore.Section" Multiplicity="1" />
+    <End Role="Attendance" Type="ApplicationDataStore.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="Activity_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Attendance_Client">
+    <End Role="Client" Type="ApplicationDataStore.Client" Multiplicity="1" />
+    <End Role="Attendance" Type="ApplicationDataStore.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="Attendance_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="ApplicationData" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <Association Name="Section_Course">
+    <End Role="Course" Type="ApplicationData.Course" Multiplicity="1" />
+    <End Role="Section" Type="ApplicationData.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Section_Instructor">
+    <End Role="Instructor" Type="ApplicationData.Instructor" Multiplicity="1" />
+    <End Role="Section" Type="ApplicationData.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Instructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Section">
+    <End Role="Section" Type="ApplicationData.Section" Multiplicity="1" />
+    <End Role="Enrollment" Type="ApplicationData.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCategory_Course">
+    <End Role="Course" Type="ApplicationData.Course" Multiplicity="1" />
+    <End Role="CourseCategory" Type="ApplicationData.CourseCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCategory">
+        <PropertyRef Name="CourseCategory_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseCategory_Category">
+    <End Role="Category" Type="ApplicationData.Category" Multiplicity="1" />
+    <End Role="CourseCategory" Type="ApplicationData.CourseCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCategory">
+        <PropertyRef Name="CourseCategory_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Student">
+    <End Role="Student" Type="ApplicationData.Student" Multiplicity="1" />
+    <End Role="Enrollment" Type="ApplicationData.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="CourseCategories" Relationship="ApplicationData.CourseCategory_Category" ToRole="CourseCategory" FromRole="Category" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Description" Type="String" MaxLength="3000" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Sections" Relationship="ApplicationData.Section_Course" ToRole="Section" FromRole="Course" />
+    <NavigationProperty Name="CourseCategories" Relationship="ApplicationData.CourseCategory_Course" ToRole="CourseCategory" FromRole="Course" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Phone" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Office" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Bio" Type="String" MaxLength="300" ConcurrencyMode="Fixed" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UpdatedTime" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Sections" Relationship="ApplicationData.Section_Instructor" ToRole="Section" FromRole="Instructor" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SectionID" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="MaxEnrollment" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="AcademicYear" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="AcademicQuarter" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="MeetingDays" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="MeetingTime" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Section_Course" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Section_Instructor" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Course" Relationship="ApplicationData.Section_Course" ToRole="Course" FromRole="Section" />
+    <NavigationProperty Name="Instructor" Relationship="ApplicationData.Section_Instructor" ToRole="Instructor" FromRole="Section" />
+    <NavigationProperty Name="Enrollments" Relationship="ApplicationData.Enrollment_Section" ToRole="Enrollment" FromRole="Section" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Enrollment_Section" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Enrollment_Student" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Section" Relationship="ApplicationData.Enrollment_Section" ToRole="Section" FromRole="Enrollment" />
+    <NavigationProperty Name="Student" Relationship="ApplicationData.Enrollment_Student" ToRole="Student" FromRole="Enrollment" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Zip" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UpdatedTime" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Enrollments" Relationship="ApplicationData.Enrollment_Student" ToRole="Enrollment" FromRole="Student" />
+  </EntityType>
+  <EntityType Name="CourseCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CourseCategory_Course" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CourseCategory_Category" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Course" Relationship="ApplicationData.CourseCategory_Course" ToRole="Course" FromRole="CourseCategory" />
+    <NavigationProperty Name="Category" Relationship="ApplicationData.CourseCategory_Category" ToRole="Category" FromRole="CourseCategory" />
+  </EntityType>
+  <EntityContainer Name="ApplicationDataObjectContext">
+    <EntitySet Name="Categories" EntityType="ApplicationData.Category" />
+    <EntitySet Name="Courses" EntityType="ApplicationData.Course" />
+    <EntitySet Name="Instructors" EntityType="ApplicationData.Instructor" />
+    <EntitySet Name="Sections" EntityType="ApplicationData.Section" />
+    <EntitySet Name="Enrollments" EntityType="ApplicationData.Enrollment" />
+    <EntitySet Name="Students" EntityType="ApplicationData.Student" />
+    <EntitySet Name="CourseCategories" EntityType="ApplicationData.CourseCategory" />
+    <AssociationSet Name="Section_Course" Association="ApplicationData.Section_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Section_Instructor" Association="ApplicationData.Section_Instructor">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Section" Association="ApplicationData.Enrollment_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCategory_Course" Association="ApplicationData.CourseCategory_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CourseCategory" EntitySet="CourseCategories" />
+    </AssociationSet>
+    <AssociationSet Name="CourseCategory_Category" Association="ApplicationData.CourseCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CourseCategory" EntitySet="CourseCategories" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Student" Association="ApplicationData.Enrollment_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,168 @@
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\Application.Common.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\Application.Common.pdb
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\Microsoft.CSharp.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\System.ComponentModel.Composition.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\System.ComponentModel.Composition.xml
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\Microsoft.CSharp.xml
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\de\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\es\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\fr\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\it\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\ja\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\ko\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\ru\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\zh-Hans\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\zh-Hant\System.ComponentModel.Composition.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\de\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\es\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\fr\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\it\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\ja\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\ko\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\ru\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\zh-Hans\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\zh-Hant\Microsoft.CSharp.resources.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\obj\Debug\Application.Common.dll
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\obj\Debug\Application.Common.pdb
+C:\Users\ankung\Documents\Visual Studio 2010\Projects\CourseManagerCSharp\CourseManagerCSharp\Common\Bin\LSCodeGeneratorsTask.mcs
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\obj\Debug\Application.Common.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\obj\Debug\Application.Common.pdb
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\LSCommonCodeGeneratorsTask.mcs
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\Application.Common.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\Application.Common.pdb
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\Microsoft.CSharp.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\Microsoft.LightSwitch.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\System.ComponentModel.Composition.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\System.ComponentModel.Composition.xml
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\Microsoft.CSharp.xml
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\Microsoft.LightSwitch.xml
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\de\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\es\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\fr\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\it\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ja\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ko\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ru\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\zh-Hans\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\zh-Hant\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\de\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\es\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\fr\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\it\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ja\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ko\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ru\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\zh-Hans\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\zh-Hant\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ar\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\bg\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ca\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\cs\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\da\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\de\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\el\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\es\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\et\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\eu\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\fi\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\fr\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\he\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\hr\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\hu\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\id\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\it\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ja\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ko\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\lt\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\lv\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ms\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\nl\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\no\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\pl\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\pt\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\pt-BR\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ro\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\ru\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\sk\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\sl\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\sr-Cyrl-CS\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\sr-Latn-CS\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\sv\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\th\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\tr\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\uk\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\vi\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\zh-Hans\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\CourseManagerCSharp\Common\Bin\zh-Hant\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\Application.Common.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\Application.Common.pdb
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\Microsoft.CSharp.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\Microsoft.LightSwitch.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\System.ComponentModel.Composition.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\System.ComponentModel.Composition.xml
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\Microsoft.CSharp.xml
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\Microsoft.LightSwitch.xml
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\de\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\es\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\fr\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\it\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ja\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ko\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ru\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\zh-Hans\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\zh-Hant\System.ComponentModel.Composition.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\de\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\es\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\fr\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\it\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ja\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ko\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ru\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\zh-Hans\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\zh-Hant\Microsoft.CSharp.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ar\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\bg\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ca\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\cs\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\da\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\de\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\el\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\es\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\et\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\eu\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\fi\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\fr\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\he\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\hr\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\hu\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\id\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\it\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ja\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ko\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\lt\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\lv\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ms\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\nl\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\no\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\pl\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\pt\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\pt-BR\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ro\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\ru\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\sk\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\sl\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\sr-Cyrl-CS\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\sr-Latn-CS\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\sv\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\th\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\tr\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\uk\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\vi\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\zh-Hans\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\zh-Hant\Microsoft.LightSwitch.resources.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\obj\Debug\Application.Common.dll
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\obj\Debug\Application.Common.pdb
+C:\LS\LightSwitch Course Manager End-to-End Application\C#\FloatingLegs\Common\Bin\LSCommonCodeGeneratorsTask.mcs

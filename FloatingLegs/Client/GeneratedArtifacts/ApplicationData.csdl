@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="3000" />
+    <NavigationProperty Name="CourseProgramItem" Relationship="LightSwitchApplication.CourseProgram_Program" ToRole="CourseProgram" FromRole="Program" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="Edm.String" MaxLength="3000" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TeachingRatio" Type="Edm.String" MaxLength="255" />
+    <Property Name="PoolArea" Type="Edm.String" MaxLength="255" />
+    <Property Name="ClassSize" Type="Edm.Int32" />
+    <NavigationProperty Name="Sections" Relationship="LightSwitchApplication.Section_Course" ToRole="Section" FromRole="Course" />
+    <NavigationProperty Name="CourseProgram" Relationship="LightSwitchApplication.CourseProgram_Course" ToRole="CourseProgram" FromRole="Course" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Title" Type="Edm.String" MaxLength="255" />
+    <Property Name="Picture" Type="Edm.Binary" MaxLength="Max" />
+    <Property Name="Phone" Type="Edm.String" MaxLength="255" />
+    <Property Name="Office" Type="Edm.String" MaxLength="255" />
+    <Property Name="Bio" Type="Edm.String" MaxLength="300" />
+    <Property Name="CreatedTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Sections" Relationship="LightSwitchApplication.Section_Instructor" ToRole="Section" FromRole="Instructor" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectionID" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="MaxEnrollment" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Year" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Season" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingDays" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Section_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Section_Instructor" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.Section_Course" ToRole="Course" FromRole="Section" />
+    <NavigationProperty Name="Instructor" Relationship="LightSwitchApplication.Section_Instructor" ToRole="Instructor" FromRole="Section" />
+    <NavigationProperty Name="Enrollments" Relationship="LightSwitchApplication.Enrollment_Section" ToRole="Enrollment" FromRole="Section" />
+    <NavigationProperty Name="Attendance" Relationship="LightSwitchApplication.Attendance_Section" ToRole="Attendance" FromRole="Section" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Enrollment_Section" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Enrollment_Student" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Section" Relationship="LightSwitchApplication.Enrollment_Section" ToRole="Section" FromRole="Enrollment" />
+    <NavigationProperty Name="Client" Relationship="LightSwitchApplication.Enrollment_Client" ToRole="Client" FromRole="Enrollment" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Picture" Type="Edm.Binary" MaxLength="Max" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Gender" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Birthday" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="NotificationRecpients" Type="Edm.String" MaxLength="255" />
+    <Property Name="CreatedTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <NavigationProperty Name="Enrollments" Relationship="LightSwitchApplication.Enrollment_Client" ToRole="Enrollment" FromRole="Client" />
+    <NavigationProperty Name="Sponsorships" Relationship="LightSwitchApplication.Client_Sponsorship" ToRole="Sponsorship" FromRole="Client" />
+    <NavigationProperty Name="SponsorRelationship" Relationship="LightSwitchApplication.Client_SponsorRelationship" ToRole="SponsorRelationship" FromRole="Client" />
+    <NavigationProperty Name="Attendances" Relationship="LightSwitchApplication.Attendance_Client" ToRole="Attendance" FromRole="Client" />
+  </EntityType>
+  <EntityType Name="CourseProgram">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CourseCategory_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CourseCategory_Category" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.CourseProgram_Course" ToRole="Course" FromRole="CourseProgram" />
+    <NavigationProperty Name="Program" Relationship="LightSwitchApplication.CourseProgram_Program" ToRole="Program" FromRole="CourseProgram" />
+  </EntityType>
+  <EntityType Name="Sponsorship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Client_Sponsorship" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Sponsor_Sponsorship" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="LightSwitchApplication.Client_Sponsorship" ToRole="Client" FromRole="Sponsorship" />
+    <NavigationProperty Name="Sponsor" Relationship="LightSwitchApplication.Sponsor_Sponsorship" ToRole="Sponsor" FromRole="Sponsorship" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="PreferredContactMethod" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="State" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Zip" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="UpdatedTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <NavigationProperty Name="SponsorRelationship" Relationship="LightSwitchApplication.Sponsor_SponsorRelationship" ToRole="SponsorRelationship" FromRole="Sponsor" />
+    <NavigationProperty Name="Sponsorships" Relationship="LightSwitchApplication.Sponsor_Sponsorship" ToRole="Sponsorship" FromRole="Sponsor" />
+  </EntityType>
+  <EntityType Name="SponsorRelationship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Relationship" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="IsPrimary" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="Client_RelationshipType" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Sponsor_RelationshipType" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="LightSwitchApplication.Client_SponsorRelationship" ToRole="Client" FromRole="SponsorRelationship" />
+    <NavigationProperty Name="Sponsor" Relationship="LightSwitchApplication.Sponsor_SponsorRelationship" ToRole="Sponsor" FromRole="SponsorRelationship" />
+  </EntityType>
+  <EntityType Name="ScheduleViewAppt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Subject" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="ApptGuid" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Category" Type="Edm.String" MaxLength="255" />
+    <Property Name="Importance" Type="Edm.String" MaxLength="255" />
+    <Property Name="IsAllDay" Type="Edm.Boolean" />
+    <Property Name="Location" Type="Edm.String" MaxLength="255" />
+    <Property Name="RecurrenceRule" Type="Edm.String" MaxLength="255" />
+    <Property Name="TimeMarker" Type="Edm.String" MaxLength="255" />
+    <Property Name="URL" Type="Edm.String" MaxLength="255" />
+    <Property Name="Description" Type="Edm.String" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Table1Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Pool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="PoolCapacity" Type="Edm.Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="DateTime" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Activity_Section" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Attendance_Client" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Section" Relationship="LightSwitchApplication.Attendance_Section" ToRole="Section" FromRole="Attendance" />
+    <NavigationProperty Name="Client" Relationship="LightSwitchApplication.Attendance_Client" ToRole="Client" FromRole="Attendance" />
+  </EntityType>
+  <Association Name="Section_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="Section" Type="LightSwitchApplication.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Section_Instructor">
+    <End Role="Instructor" Type="LightSwitchApplication.Instructor" Multiplicity="1" />
+    <End Role="Section" Type="LightSwitchApplication.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="Section_Instructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Section">
+    <End Role="Section" Type="LightSwitchApplication.Section" Multiplicity="1" />
+    <End Role="Enrollment" Type="LightSwitchApplication.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="CourseProgram" Type="LightSwitchApplication.CourseProgram" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseProgram">
+        <PropertyRef Name="CourseCategory_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram_Program">
+    <End Role="Program" Type="LightSwitchApplication.Program" Multiplicity="1" />
+    <End Role="CourseProgram" Type="LightSwitchApplication.CourseProgram" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseProgram">
+        <PropertyRef Name="CourseCategory_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Client">
+    <End Role="Client" Type="LightSwitchApplication.Client" Multiplicity="1" />
+    <End Role="Enrollment" Type="LightSwitchApplication.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="Enrollment_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Client_Sponsorship">
+    <End Role="Client" Type="LightSwitchApplication.Client" Multiplicity="1" />
+    <End Role="Sponsorship" Type="LightSwitchApplication.Sponsorship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorship">
+        <PropertyRef Name="Client_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_Sponsorship">
+    <End Role="Sponsor" Type="LightSwitchApplication.Sponsor" Multiplicity="1" />
+    <End Role="Sponsorship" Type="LightSwitchApplication.Sponsorship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorship">
+        <PropertyRef Name="Sponsor_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Client_SponsorRelationship">
+    <End Role="Client" Type="LightSwitchApplication.Client" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="LightSwitchApplication.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Client_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_SponsorRelationship">
+    <End Role="Sponsor" Type="LightSwitchApplication.Sponsor" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="LightSwitchApplication.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Sponsor_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Attendance_Section">
+    <End Role="Section" Type="LightSwitchApplication.Section" Multiplicity="1" />
+    <End Role="Attendance" Type="LightSwitchApplication.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="Activity_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Attendance_Client">
+    <End Role="Client" Type="LightSwitchApplication.Client" Multiplicity="1" />
+    <End Role="Attendance" Type="LightSwitchApplication.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="Attendance_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ApplicationDataObjectContext" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Programs" EntityType="LightSwitchApplication.Program" />
+    <EntitySet Name="Courses" EntityType="LightSwitchApplication.Course" />
+    <EntitySet Name="Instructors" EntityType="LightSwitchApplication.Instructor" />
+    <EntitySet Name="Sections" EntityType="LightSwitchApplication.Section" />
+    <EntitySet Name="Enrollments" EntityType="LightSwitchApplication.Enrollment" />
+    <EntitySet Name="Clients" EntityType="LightSwitchApplication.Client" />
+    <EntitySet Name="CoursePrograms" EntityType="LightSwitchApplication.CourseProgram" />
+    <EntitySet Name="Sponsorships" EntityType="LightSwitchApplication.Sponsorship" />
+    <EntitySet Name="Sponsors" EntityType="LightSwitchApplication.Sponsor" />
+    <EntitySet Name="SponsorRelationship" EntityType="LightSwitchApplication.SponsorRelationship" />
+    <EntitySet Name="ScheduleViewAppts" EntityType="LightSwitchApplication.ScheduleViewAppt" />
+    <EntitySet Name="Table1Items" EntityType="LightSwitchApplication.Table1Item" />
+    <EntitySet Name="Pools" EntityType="LightSwitchApplication.Pool" />
+    <EntitySet Name="Attendances" EntityType="LightSwitchApplication.Attendance" />
+    <AssociationSet Name="Section_Course" Association="LightSwitchApplication.Section_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Section_Instructor" Association="LightSwitchApplication.Section_Instructor">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Section" Association="LightSwitchApplication.Enrollment_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram_Course" Association="LightSwitchApplication.CourseProgram_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CourseProgram" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram_Program" Association="LightSwitchApplication.CourseProgram_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="CourseProgram" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Client" Association="LightSwitchApplication.Enrollment_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="Client_Sponsorship" Association="LightSwitchApplication.Client_Sponsorship">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Sponsorship" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_Sponsorship" Association="LightSwitchApplication.Sponsor_Sponsorship">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="Sponsorship" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="Client_SponsorRelationship" Association="LightSwitchApplication.Client_SponsorRelationship">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationship" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_SponsorRelationship" Association="LightSwitchApplication.Sponsor_SponsorRelationship">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationship" />
+    </AssociationSet>
+    <AssociationSet Name="Attendance_Section" Association="LightSwitchApplication.Attendance_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="Attendance_Client" Association="LightSwitchApplication.Attendance_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

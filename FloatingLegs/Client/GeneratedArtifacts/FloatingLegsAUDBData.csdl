@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="aspnet_Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="Edm.String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredApplicationName" Type="Edm.String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="Description" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="aspnet_Memberships" Relationship="LightSwitchApplication.FK__aspnet_Me__Appli__08B54D69" ToRole="aspnet_Membership" FromRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="LightSwitchApplication.FK__aspnet_Ro__Appli__2739D489" ToRole="aspnet_Roles" FromRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="LightSwitchApplication.FK__aspnet_Us__Appli__787EE5A0" ToRole="aspnet_Users" FromRole="aspnet_Applications" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="Password" Type="Edm.String" Nullable="false" MaxLength="128" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordFormat" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordSalt" Type="Edm.String" Nullable="false" MaxLength="128" ConcurrencyMode="Fixed" />
+    <Property Name="MobilePIN" Type="Edm.String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="Email" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredEmail" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordQuestion" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordAnswer" Type="Edm.String" MaxLength="128" ConcurrencyMode="Fixed" />
+    <Property Name="IsApproved" Type="Edm.Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="IsLockedOut" Type="Edm.Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CreateDate" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="LastLoginDate" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="LastPasswordChangedDate" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="LastLockoutDate" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAttemptCount" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Comment" Type="Edm.String" MaxLength="Max" />
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="aspnet_Application" Relationship="LightSwitchApplication.FK__aspnet_Me__Appli__08B54D69" ToRole="aspnet_Applications" FromRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_User" Relationship="LightSwitchApplication.FK__aspnet_Me__UserI__09A971A2" ToRole="aspnet_Users" FromRole="aspnet_Membership" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="PropertyNames" Type="Edm.String" Nullable="false" MaxLength="Max" />
+    <Property Name="PropertyValuesString" Type="Edm.String" Nullable="false" MaxLength="Max" />
+    <Property Name="PropertyValuesBinary" Type="Edm.Binary" Nullable="false" MaxLength="Max" />
+    <Property Name="LastUpdatedDate" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="aspnet_User" Relationship="LightSwitchApplication.FK__aspnet_Pr__UserI__1DB06A4F" ToRole="aspnet_Users" FromRole="aspnet_Profile" />
+  </EntityType>
+  <EntityType Name="aspnet_Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredRoleName" Type="Edm.String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="Description" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="aspnet_Application" Relationship="LightSwitchApplication.FK__aspnet_Ro__Appli__2739D489" ToRole="aspnet_Applications" FromRole="aspnet_Roles" />
+    <NavigationProperty Name="aspnet_UsersInRoles" Relationship="LightSwitchApplication.FK__aspnet_Us__RoleI__2BFE89A6" ToRole="aspnet_UsersInRoles" FromRole="aspnet_Roles" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersion">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <Property Name="CompatibleSchemaVersion" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <Property Name="IsCurrentVersion" Type="Edm.Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="aspnet_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredUserName" Type="Edm.String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="MobileAlias" Type="Edm.String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="IsAnonymous" Type="Edm.Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="LastActivityDate" Type="Edm.DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="LightSwitchApplication.FK__aspnet_Me__UserI__09A971A2" ToRole="aspnet_Membership" FromRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="LightSwitchApplication.FK__aspnet_Pr__UserI__1DB06A4F" ToRole="aspnet_Profile" FromRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Application" Relationship="LightSwitchApplication.FK__aspnet_Us__Appli__787EE5A0" ToRole="aspnet_Applications" FromRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_UsersInRoles" Relationship="LightSwitchApplication.FK__aspnet_Us__UserI__2B0A656D" ToRole="aspnet_UsersInRoles" FromRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Edm.Guid" Nullable="false" />
+    <NavigationProperty Name="aspnet_Role" Relationship="LightSwitchApplication.FK__aspnet_Us__RoleI__2BFE89A6" ToRole="aspnet_Roles" FromRole="aspnet_UsersInRoles" />
+    <NavigationProperty Name="aspnet_User" Relationship="LightSwitchApplication.FK__aspnet_Us__UserI__2B0A656D" ToRole="aspnet_Users" FromRole="aspnet_UsersInRoles" />
+  </EntityType>
+  <EntityType Name="Client1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Picture" Type="Edm.Binary" MaxLength="Max" />
+    <Property Name="Gender" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Birthday" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="NotificationRecpients" Type="Edm.String" MaxLength="255" />
+    <Property Name="CreatedTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="SponsorRelationships" Relationship="LightSwitchApplication.Client_SponsorRelationshipItem1" ToRole="SponsorRelationship" FromRole="Clients" />
+    <NavigationProperty Name="Sponsorships" Relationship="LightSwitchApplication.Client_Sponsorship1" ToRole="Sponsorships" FromRole="Clients" />
+    <NavigationProperty Name="Enrollments" Relationship="LightSwitchApplication.Enrollment_Client1" ToRole="Enrollments" FromRole="Clients" />
+  </EntityType>
+  <EntityType Name="CourseProgram1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CourseCategory_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CourseCategory_Category" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="LightSwitchApplication.CourseProgram_Course1" ToRole="Courses" FromRole="CoursePrograms" />
+    <NavigationProperty Name="FL_Programs" Relationship="LightSwitchApplication.FL_Programs_CourseProgram1" ToRole="FL_Programs" FromRole="CoursePrograms" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="Edm.String" MaxLength="3000" />
+    <Property Name="TeachingRatio" Type="Edm.String" MaxLength="255" />
+    <Property Name="PoolArea" Type="Edm.String" MaxLength="255" />
+    <Property Name="ClassSize" Type="Edm.Int32" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CoursePrograms" Relationship="LightSwitchApplication.CourseProgram_Course1" ToRole="CoursePrograms" FromRole="Courses" />
+    <NavigationProperty Name="Sections" Relationship="LightSwitchApplication.Section_Course1" ToRole="Sections" FromRole="Courses" />
+  </EntityType>
+  <EntityType Name="Enrollment1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Enrollment_Student" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Enrollment_Section" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Client1" Relationship="LightSwitchApplication.Enrollment_Client1" ToRole="Clients" FromRole="Enrollments" />
+    <NavigationProperty Name="Section1" Relationship="LightSwitchApplication.Enrollment_Section1" ToRole="Sections" FromRole="Enrollments" />
+  </EntityType>
+  <EntityType Name="AbilitiesUnitedInstructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Title" Type="Edm.String" MaxLength="255" />
+    <Property Name="Picture" Type="Edm.Binary" MaxLength="Max" />
+    <Property Name="Phone" Type="Edm.String" MaxLength="255" />
+    <Property Name="Office" Type="Edm.String" MaxLength="255" />
+    <Property Name="Bio" Type="Edm.String" MaxLength="300" />
+    <Property Name="CreatedTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Sections" Relationship="LightSwitchApplication.AbilitiesUnitedInstructor_Section1" ToRole="Sections" FromRole="AbilitiesUnitedInstructor" />
+  </EntityType>
+  <EntityType Name="Pool1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="StartTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="FL_Programs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="3000" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CoursePrograms" Relationship="LightSwitchApplication.FL_Programs_CourseProgram1" ToRole="CoursePrograms" FromRole="FL_Programs" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <Property Name="PermissionId" Type="Edm.String" Nullable="false" MaxLength="322" />
+  </EntityType>
+  <EntityType Name="Section1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectionID" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="MaxEnrollment" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Year" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Season" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingDays" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="MeetingTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Section_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Section_Instructor" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Enrollments" Relationship="LightSwitchApplication.Enrollment_Section1" ToRole="Enrollments" FromRole="Sections" />
+    <NavigationProperty Name="Cours" Relationship="LightSwitchApplication.Section_Course1" ToRole="Courses" FromRole="Sections" />
+    <NavigationProperty Name="AbilitiesUnitedInstructor" Relationship="LightSwitchApplication.AbilitiesUnitedInstructor_Section1" ToRole="AbilitiesUnitedInstructor" FromRole="Sections" />
+  </EntityType>
+  <EntityType Name="SponsorRelationship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Relationship" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="IsPrimary" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Client_RelationshipType" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Sponsor_RelationshipType" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Client1" Relationship="LightSwitchApplication.Client_SponsorRelationshipItem1" ToRole="Clients" FromRole="SponsorRelationship" />
+    <NavigationProperty Name="Sponsor1" Relationship="LightSwitchApplication.Sponsor_SponsorRelationshipItem1" ToRole="Sponsors" FromRole="SponsorRelationship" />
+  </EntityType>
+  <EntityType Name="Sponsor1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="PreferredContactMethod" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="State" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Zip" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedTime" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="SponsorRelationships" Relationship="LightSwitchApplication.Sponsor_SponsorRelationshipItem1" ToRole="SponsorRelationship" FromRole="Sponsors" />
+    <NavigationProperty Name="Sponsorships" Relationship="LightSwitchApplication.Sponsor_Sponsorship1" ToRole="Sponsorships" FromRole="Sponsors" />
+  </EntityType>
+  <EntityType Name="Sponsorship1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Client_Sponsorship" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Sponsor_Sponsorship" Type="Edm.Int32" Nullable="false" />
+    <NavigationProperty Name="Client1" Relationship="LightSwitchApplication.Client_Sponsorship1" ToRole="Clients" FromRole="Sponsorships" />
+    <NavigationProperty Name="Sponsor1" Relationship="LightSwitchApplication.Sponsor_Sponsorship1" ToRole="Sponsors" FromRole="Sponsorships" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Application">
+    <Key>
+      <PropertyRef Name="ApplicationName" />
+      <PropertyRef Name="LoweredApplicationName" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredApplicationName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="Description" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_MembershipUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="PasswordFormat" Type="Edm.Int32" Nullable="false" />
+    <Property Name="MobilePIN" Type="Edm.String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="Email" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredEmail" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordQuestion" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordAnswer" Type="Edm.String" MaxLength="128" ConcurrencyMode="Fixed" />
+    <Property Name="IsApproved" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLoginDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastPasswordChangedDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLockoutDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAttemptCount" Type="Edm.Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Edm.Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="Edm.String" MaxLength="Max" />
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="Edm.String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="IsAnonymous" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataSize" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Role">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="LoweredRoleName" />
+    </Key>
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredRoleName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="Edm.String" MaxLength="256" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_User">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="ApplicationId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="Edm.String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="IsAnonymous" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_UsersInRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="Edm.Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Edm.Guid" Nullable="false" />
+  </EntityType>
+  <Association Name="Client_SponsorRelationshipItem1">
+    <End Role="Clients" Type="LightSwitchApplication.Client1" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="LightSwitchApplication.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Client_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Client_Sponsorship1">
+    <End Role="Clients" Type="LightSwitchApplication.Client1" Multiplicity="1" />
+    <End Role="Sponsorships" Type="LightSwitchApplication.Sponsorship1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorships">
+        <PropertyRef Name="Client_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseProgram_Course1">
+    <End Role="Courses" Type="LightSwitchApplication.Cours" Multiplicity="1" />
+    <End Role="CoursePrograms" Type="LightSwitchApplication.CourseProgram1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursePrograms">
+        <PropertyRef Name="CourseCategory_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FL_Programs_CourseProgram1">
+    <End Role="FL_Programs" Type="LightSwitchApplication.FL_Programs" Multiplicity="1" />
+    <End Role="CoursePrograms" Type="LightSwitchApplication.CourseProgram1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_Programs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursePrograms">
+        <PropertyRef Name="CourseCategory_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Client1">
+    <End Role="Clients" Type="LightSwitchApplication.Client1" Multiplicity="1" />
+    <End Role="Enrollments" Type="LightSwitchApplication.Enrollment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="Enrollment_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment_Section1">
+    <End Role="Sections" Type="LightSwitchApplication.Section1" Multiplicity="1" />
+    <End Role="Enrollments" Type="LightSwitchApplication.Enrollment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="Enrollment_Section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__Appli__08B54D69">
+    <End Role="aspnet_Applications" Type="LightSwitchApplication.aspnet_Application" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="LightSwitchApplication.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__09A971A2">
+    <End Role="aspnet_Users" Type="LightSwitchApplication.aspnet_User" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="LightSwitchApplication.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__1DB06A4F">
+    <End Role="aspnet_Users" Type="LightSwitchApplication.aspnet_User" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="LightSwitchApplication.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__2739D489">
+    <End Role="aspnet_Applications" Type="LightSwitchApplication.aspnet_Application" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="LightSwitchApplication.aspnet_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__787EE5A0">
+    <End Role="aspnet_Applications" Type="LightSwitchApplication.aspnet_Application" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="LightSwitchApplication.aspnet_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__2BFE89A6">
+    <End Role="aspnet_Roles" Type="LightSwitchApplication.aspnet_Role" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="LightSwitchApplication.aspnet_UsersInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__2B0A656D">
+    <End Role="aspnet_Users" Type="LightSwitchApplication.aspnet_User" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="LightSwitchApplication.aspnet_UsersInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Section_Course1">
+    <End Role="Courses" Type="LightSwitchApplication.Cours" Multiplicity="1" />
+    <End Role="Sections" Type="LightSwitchApplication.Section1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="Section_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AbilitiesUnitedInstructor_Section1">
+    <End Role="AbilitiesUnitedInstructor" Type="LightSwitchApplication.AbilitiesUnitedInstructor" Multiplicity="1" />
+    <End Role="Sections" Type="LightSwitchApplication.Section1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbilitiesUnitedInstructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="Section_Instructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_SponsorRelationshipItem1">
+    <End Role="Sponsors" Type="LightSwitchApplication.Sponsor1" Multiplicity="1" />
+    <End Role="SponsorRelationship" Type="LightSwitchApplication.SponsorRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorRelationship">
+        <PropertyRef Name="Sponsor_RelationshipType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sponsor_Sponsorship1">
+    <End Role="Sponsors" Type="LightSwitchApplication.Sponsor1" Multiplicity="1" />
+    <End Role="Sponsorships" Type="LightSwitchApplication.Sponsorship1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorships">
+        <PropertyRef Name="Sponsor_Sponsorship" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FloatingLegsAUDBDataObjectContext" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="aspnet_Applications" EntityType="LightSwitchApplication.aspnet_Application" />
+    <EntitySet Name="aspnet_Memberships" EntityType="LightSwitchApplication.aspnet_Membership" />
+    <EntitySet Name="aspnet_Profiles" EntityType="LightSwitchApplication.aspnet_Profile" />
+    <EntitySet Name="aspnet_Roles" EntityType="LightSwitchApplication.aspnet_Role" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="LightSwitchApplication.aspnet_SchemaVersion" />
+    <EntitySet Name="aspnet_Users" EntityType="LightSwitchApplication.aspnet_User" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="LightSwitchApplication.aspnet_UsersInRole" />
+    <EntitySet Name="Clients" EntityType="LightSwitchApplication.Client1" />
+    <EntitySet Name="CoursePrograms" EntityType="LightSwitchApplication.CourseProgram1" />
+    <EntitySet Name="Courses" EntityType="LightSwitchApplication.Cours" />
+    <EntitySet Name="Enrollments" EntityType="LightSwitchApplication.Enrollment1" />
+    <EntitySet Name="Instructors" EntityType="LightSwitchApplication.AbilitiesUnitedInstructor" />
+    <EntitySet Name="Pools" EntityType="LightSwitchApplication.Pool1" />
+    <EntitySet Name="Programs" EntityType="LightSwitchApplication.FL_Programs" />
+    <EntitySet Name="RolePermissions" EntityType="LightSwitchApplication.RolePermission" />
+    <EntitySet Name="Sections" EntityType="LightSwitchApplication.Section1" />
+    <EntitySet Name="SponsorRelationships" EntityType="LightSwitchApplication.SponsorRelationship" />
+    <EntitySet Name="Sponsors" EntityType="LightSwitchApplication.Sponsor1" />
+    <EntitySet Name="Sponsorships" EntityType="LightSwitchApplication.Sponsorship1" />
+    <EntitySet Name="vw_aspnet_Applications" EntityType="LightSwitchApplication.vw_aspnet_Application" />
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="LightSwitchApplication.vw_aspnet_MembershipUser" />
+    <EntitySet Name="vw_aspnet_Profiles" EntityType="LightSwitchApplication.vw_aspnet_Profile" />
+    <EntitySet Name="vw_aspnet_Roles" EntityType="LightSwitchApplication.vw_aspnet_Role" />
+    <EntitySet Name="vw_aspnet_Users" EntityType="LightSwitchApplication.vw_aspnet_User" />
+    <EntitySet Name="vw_aspnet_UsersInRoles" EntityType="LightSwitchApplication.vw_aspnet_UsersInRole" />
+    <AssociationSet Name="Client_SponsorRelationshipItem1" Association="LightSwitchApplication.Client_SponsorRelationshipItem1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationships" />
+    </AssociationSet>
+    <AssociationSet Name="Client_Sponsorship1" Association="LightSwitchApplication.Client_Sponsorship1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Sponsorships" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="CourseProgram_Course1" Association="LightSwitchApplication.CourseProgram_Course1">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CoursePrograms" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="FL_Programs_CourseProgram1" Association="LightSwitchApplication.FL_Programs_CourseProgram1">
+      <End Role="FL_Programs" EntitySet="Programs" />
+      <End Role="CoursePrograms" EntitySet="CoursePrograms" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Client1" Association="LightSwitchApplication.Enrollment_Client1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment_Section1" Association="LightSwitchApplication.Enrollment_Section1">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__Appli__08B54D69" Association="LightSwitchApplication.FK__aspnet_Me__Appli__08B54D69">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__09A971A2" Association="LightSwitchApplication.FK__aspnet_Me__UserI__09A971A2">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__1DB06A4F" Association="LightSwitchApplication.FK__aspnet_Pr__UserI__1DB06A4F">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__2739D489" Association="LightSwitchApplication.FK__aspnet_Ro__Appli__2739D489">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__787EE5A0" Association="LightSwitchApplication.FK__aspnet_Us__Appli__787EE5A0">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__2BFE89A6" Association="LightSwitchApplication.FK__aspnet_Us__RoleI__2BFE89A6">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__2B0A656D" Association="LightSwitchApplication.FK__aspnet_Us__UserI__2B0A656D">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="Section_Course1" Association="LightSwitchApplication.Section_Course1">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="AbilitiesUnitedInstructor_Section1" Association="LightSwitchApplication.AbilitiesUnitedInstructor_Section1">
+      <End Role="AbilitiesUnitedInstructor" EntitySet="Instructors" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_SponsorRelationshipItem1" Association="LightSwitchApplication.Sponsor_SponsorRelationshipItem1">
+      <End Role="Sponsors" EntitySet="Sponsors" />
+      <End Role="SponsorRelationship" EntitySet="SponsorRelationships" />
+    </AssociationSet>
+    <AssociationSet Name="Sponsor_Sponsorship1" Association="LightSwitchApplication.Sponsor_Sponsorship1">
+      <End Role="Sponsors" EntitySet="Sponsors" />
+      <End Role="Sponsorships" EntitySet="Sponsorships" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
